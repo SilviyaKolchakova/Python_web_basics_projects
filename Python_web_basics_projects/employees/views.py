@@ -1,5 +1,7 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
+from Python_web_basics_projects.employees.models import Department, Employee
 
 
 def home(request):
@@ -7,7 +9,16 @@ def home(request):
 
 
 def list_departments(request):
-    return HttpResponse('This is a list of departments')
+    # department = Department(
+    #     name='NewDepartment'
+    # )
+    # department.save()
+
+    context = {
+        'departments': Department.objects.all(),
+        'employees': Employee.objects.all()
+    }
+    return render(request, 'list_departments.html', context)
 
 
 def department_details(request):
