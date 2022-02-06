@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
 
-    path('departments/', include('Python_web_basics_projects.employees.urls'))
+    path('departments/', include('Python_web_basics_projects.employees.urls')),
+    path('templates/', include('Python_web_basics_projects.templates_examples.urls')),
 ]

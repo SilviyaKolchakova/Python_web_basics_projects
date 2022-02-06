@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Python_web_basics_projects.employees',
+    'Python_web_basics_projects.templates_examples',
 ]
 
 MIDDLEWARE = [
