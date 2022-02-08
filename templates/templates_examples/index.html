@@ -1,3 +1,5 @@
+{% load departments_tags %}
+{% load string_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,5 +8,20 @@
 </head>
 <body>
     <h1>{{ title }}</h1>
+<div>
+    {% if title == 'Employees list' %}
+        {{ title|capitalize }} is correct
+    {% endif %}
+
+<ul>
+    {% for employee in employees %}
+        <li>
+            {{ employee.first_name }} {{ employee.last_name }}
+            {{ employee.get_job_title_display }}
+        </li>
+    {% endfor %}
+</ul>
+    {% departments_list %}
+</div>
 </body>
 </html>
