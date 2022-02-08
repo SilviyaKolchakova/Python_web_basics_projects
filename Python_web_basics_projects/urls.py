@@ -9,5 +9,5 @@ urlpatterns = [
     path('', home),
 
     path('departments/', include('Python_web_basics_projects.employees.urls')),
-    path('templates/', include('Python_web_basics_projects.templates_examples.urls')),
+    path('templates/', include('Python_web_basics_projects.templates_examples.urls',)),
 ]
