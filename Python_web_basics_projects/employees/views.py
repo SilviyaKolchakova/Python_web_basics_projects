@@ -1,11 +1,27 @@
-from django.http import HttpResponse
+
+from django import forms
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 from Python_web_basics_projects.employees.models import Department, Employee
 
 
+class EmployeeForm(forms.Form):
+    firs_name = forms.CharField(
+        max_length=30,
+    )
+
+    last_name = forms.CharField(
+        max_length=40,
+    )
+
+
 def home(request):
-    return HttpResponse('This is home')
+
+    context = {
+        'employee_form': EmployeeForm(),
+    }
+    return render(request, 'index.html', context)
 
 
 def list_departments(request):
@@ -22,4 +38,9 @@ def list_departments(request):
 
 
 def department_details(request):
-    return HttpResponse('Details for the departments')
+    employee = Employee()
+    context = {
+        'employee': Employee.objects.all(),
+        'department': Department.objects.all(),
+    }
+    return render(request, 'list_departments.html', context)

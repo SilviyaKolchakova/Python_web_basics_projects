@@ -7,6 +7,14 @@
 <body>
 <h1>All departments</h1>
 <ul>
+    {% for emp in employee %}
+        {{ emp.id }}
+        <li>
+        {{ emp.department }}
+        <li>
+    {% endfor %}
+</ul>
+<ul>
     {% for department in departments %}
         <li>
             {{ department.name }}

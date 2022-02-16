@@ -4,6 +4,6 @@ from Python_web_basics_projects.employees.views import list_departments, departm
 
 urlpatterns = (
     path('list', list_departments),
-    path('details', department_details),
+    path('details/', department_details),
 
 )
